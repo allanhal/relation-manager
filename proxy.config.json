@@ -1,0 +1,7 @@
+{
+    "/sql": {
+        "target": "http://localhost:2000",
+        "secure": false,
+        "loglevel": "debug"
+    }
+}

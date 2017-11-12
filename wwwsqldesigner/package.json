@@ -1,0 +1,16 @@
+{
+    "name": "rest-on-demand",
+    "version": "1.0.0",
+    "description": "A REST server to have fun",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js"
+    },
+    "dependencies": {
+        "express": "^4.15.4",
+        "nodemon": "^1.12.1"
+    },
+    "devDependencies": {},
+    "private": true,
+    "license": "MIT"
+}

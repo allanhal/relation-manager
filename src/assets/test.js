@@ -1,0 +1,1 @@
+console.log("Passei pelo test.js")
