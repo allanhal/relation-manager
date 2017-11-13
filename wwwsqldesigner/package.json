@@ -4,7 +4,7 @@
     "description": "A REST server to have fun",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon index.js"
+        "start": "nodemon -e js,xml,css,html index.js"
     },
     "dependencies": {
         "express": "^4.15.4",

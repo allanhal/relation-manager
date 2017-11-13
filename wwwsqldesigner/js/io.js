@@ -6,7 +6,7 @@ SQL.IO = function(owner) {
 		container:OZ.$("io")
 	};
 
-	var ids = ["saveload","clientlocalsave", "clientsave", "clientlocalload", "clientlocallist","clientload", "clientsql", 
+	var ids = ["loadfromlocalstorage","savelocalstorage", "backtoangular", "saveload","clientlocalsave", "clientsave", "clientlocalload", "clientlocallist","clientload", "clientsql", 
 				"dropboxsave", "dropboxload", "dropboxlist",
 				"quicksave", "serversave", "serverload",
 				"serverlist", "serverimport"];
@@ -40,6 +40,9 @@ SQL.IO = function(owner) {
 	this.listresponse = this.listresponse.bind(this);
 	this.importresponse = this.importresponse.bind(this);
 	
+	OZ.Event.add(this.dom.loadfromlocalstorage, "click", this.loadfromlocalstorage.bind(this));
+	OZ.Event.add(this.dom.savelocalstorage, "click", this.savelocalstorage.bind(this));
+	OZ.Event.add(this.dom.backtoangular, "click", this.backtoangular.bind(this));
 	OZ.Event.add(this.dom.saveload, "click", this.click.bind(this));
 	OZ.Event.add(this.dom.clientlocalsave, "click", this.clientlocalsave.bind(this));
 	OZ.Event.add(this.dom.clientsave, "click", this.clientsave.bind(this));
@@ -113,6 +116,19 @@ SQL.IO.prototype.fromXML = function(xmlDoc) {
 	this.owner.fromXML(xmlDoc.documentElement);
 	this.owner.window.close();
 	return true;
+}
+
+SQL.IO.prototype.loadfromlocalstorage = function() {
+	this.fromXMLText(localStorage.getItem('xml'));
+}
+
+SQL.IO.prototype.savelocalstorage = function() {
+	var xml = this.owner.toXML();
+	localStorage.setItem('xml', xml)
+}
+
+SQL.IO.prototype.backtoangular = function() {
+	window.history.back()
 }
 
 SQL.IO.prototype.clientsave = function() {

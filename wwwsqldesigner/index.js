@@ -20,7 +20,6 @@ app.get(`/${apiUrl}/`, (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'))
 })
 
-
 app.set('port', (process.env.PORT || 2000));
 
 let port = app.get('port');

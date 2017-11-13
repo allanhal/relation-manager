@@ -13,20 +13,6 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.url = `
-    location: ${window.location}
-    location.hash: ${window.location.hash}
-    location.host: ${window.location.host}
-    location.hostname: ${window.location.hostname}
-    location.href: ${window.location.href}
-    `;
-
-    let currentLocation = Object.assign({}, window.location); 
-    currentLocation.port = '2000';
-    // this.urlForWwwsqldesigner = ``
-
-
-    console.log(currentLocation)
   }
 
 }

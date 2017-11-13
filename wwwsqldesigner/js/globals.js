@@ -59,7 +59,3 @@ var SQL = {
 		return str.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;");
 	}
 }
-
-window.onbeforeunload = function(e) {
-	return ""; /* some browsers will show this text, some won't. */
-}

@@ -67,6 +67,9 @@
 	<string name="keyremove">Remover chave</string>
 	
 	<!-- io -->
+	<string name="loadfromlocalstorage">Carregar Dados</string>
+	<string name="savelocalstorage">Salvar Dados</string>
+	<string name="backtoangular">Voltar para o Gerador</string>
 	<string name="saveload">Salvar / Carregar</string>
 	<string name="empty">Por favor cole os dados XML na área de texto abaixo e tente novamente.</string>
 	<string name="client">Cliente</string>
