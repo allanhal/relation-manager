@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.config.json -o",
+    "start": "npm run sqlserver | ng serve -proxy-config proxy.config.json",
+    "sqlserver": "cd wwwsqldesigner && npm start",
     "dev": "ng serve",
     "build": "ng build",
     "test": "ng test",

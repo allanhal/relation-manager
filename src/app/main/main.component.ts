@@ -15,17 +15,36 @@ export class MainComponent implements OnInit {
   constructor(private SqlHandlerService: SqlHandlerService) { }
 
   ngOnInit() {
-    var that = this;
-    this.SqlHandlerService.sql(function (err, result) {
-      that.jsonObj = result
-      that.jsonText = JSON.stringify(result)
+  }
+
+  showJsonSql() {
+    this.SqlHandlerService.sqlPromise().then((result) => {
+      this.jsonObj = result
     })
-    
-    // this.SqlHandlerService.sqlPromise().then(result => {
-    //   console.log(result)
-    //   that.jsonObj = result
-    //   that.jsonText = JSON.stringify(result)
-    // })
+  }
+
+  showJsonText() {
+    this.SqlHandlerService.sqlPromise().then((result) => {
+      this.jsonText = this.treatJsonSql(result)
+    })
+  }
+
+  treatJsonSql(sqlObj): string {
+    let toReturn = '';
+    let sql = sqlObj.sql
+
+    for (let table of sql.table) {
+      let tableName = table.$.name;
+      if (tableName) {
+        toReturn += JSON.stringify(tableName)
+        for (let row of table.row) {
+          let rowName = row.$.name;
+          if (rowName) toReturn += `\n${JSON.stringify(rowName)}`
+        }
+      }
+    }
+
+    return toReturn;
   }
 
 }
